@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
@@ -49,7 +50,7 @@ public class IotaAccountIntegrationTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-        file = File.createTempFile("client", "account");
+        file = Files.createTempFile("client","account").toFile();
         iotaAPI = new IotaAPI.Builder()
                 .config(new FileConfig())
                 .localPoW(new PearlDiverLocalPoW())

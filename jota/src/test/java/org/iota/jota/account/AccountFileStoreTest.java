@@ -2,6 +2,7 @@ package org.iota.jota.account;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -28,7 +29,7 @@ public class AccountFileStoreTest {
     
     @BeforeEach
     public void setUp() throws Exception {
-        file = File.createTempFile("client", "store");
+        file = Files.createTempFile("client","store").toFile();
     }
     
     @AfterEach

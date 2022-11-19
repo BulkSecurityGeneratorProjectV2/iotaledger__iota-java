@@ -17,6 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
@@ -40,7 +41,7 @@ public class IotaAccountTest {
 
     @BeforeEach
     public void setUp() throws Exception {
-        file = File.createTempFile("client", "account");
+        file = Files.createTempFile("client","account").toFile();
 
         when(MOCK_API.getNodeInfo()).thenReturn(mock(GetNodeInfoResponse.class));
         when(MOCK_API.getCurl()).thenReturn(SpongeFactory.create(SpongeFactory.Mode.KERL));
